@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<style type="text/css">
+		.header{
+			height: 530px;
+			position: relative;
+			background-color:#F9F9F9;
+			overflow: hidden;
+		}
+		.header .inner{
+			position: relative;
+			height: 530px;
+			margin:0 auto;
+			z-index: 4;
+		}
+		.header .inner>a{
+			display: none;
+			position: absolute;
+			top:0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-size: auto 100%;
+			background-position: center;
+			background-repeat: no-repeat; 
+		}
+		.header .inner div{
+			height: 100%;
+			background-size: auto 100%;
+			background-position: center;
+			background-repeat: no-repeat;			
+		}
+		.header .inner .bg1{
+			background-image: url("images/banner1.jpg");
+		}
+		.header .inner .bg2{
+			background-image: url("images/banner2.jpg");
+		}
+		.header .inner .bg3{
+			background-image: url("images/banner3.jpg");
+		}
+		.header .inner ul{
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: 1000px;
+			height: 145px;
+			margin-left: -500px;
+		}
+		.header .inner li{
+			position: relative;
+			float: left;
+			width: 300px;
+			height: 145px;	
+			cursor: pointer;		
+		}
+		.header .inner .btn2{
+			margin:0 50px;
+		}
+		.header .inner li div{
+			background-size: auto 100%;
+			background-position: center;
+			background-repeat: no-repeat;	
+			height: 110px;
+		}
+		.header .inner .btn1 div{
+			background-image: url(images/btn1.jpg);
+		}
+		.header .inner .btn2 div{
+			background-image: url(images/btn2.jpg);
+		}
+		.header .inner .btn3 div{
+			background-image: url(images/btn3.jpg);
+		}
+		.header .inner i{
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+		    height: 6px;
+		    width: 150px;
+    		margin-left: -75px;
+    		background: #00B1B6;
+    		opacity: 0;
+    		transition: all 0.4s;
+		    -webkit-transition: all 0.5s;
+		    transition-delay: 0.2s;
+		    -webkit-transition-delay: 0.2s;			
+		}	
+		.header .inner li:hover i,.header .inner li .active{
+			 width: 300px;
+   			 opacity: 1;
+   			 margin-left: -150px;
+		}
+		 .inner .content{
+			position: absolute;
+			width: 1000px;
+			height: 100%;
+			top:0;
+			left: -500px;
+			margin-left: -500px;
+		}
+		.header .inner>a .content img{
+			display: block;
+			height: 145px;
+			margin-top: 130px;
+		}
+		.header .inner>.last .content img{
+			width: 416px;
+			height: auto;
+			margin-top: 130px;
+		}		
+		.header .inner>a .content button{
+			width: 154px;
+			height: 40px;
+			text-align: center;
+			background-color: #01aaaf;
+			color:#FFF;
+			border:none;
+			outline: none;
+			cursor: pointer;
+			margin-top: 32px;
+			padding: 0;
+		}	
+		.header .inner .show{
+			display: block;
+		}
+		.header>a{
+		    position: absolute;
+		    width: 35px;
+		    height: 80px;
+		    top: 50%;
+		    margin-top: -40px;
+		    background: url(images/read.png) no-repeat;
+		}		
+		.header .lastBtn {
+    		background-position: top left;
+		}
+		.header .nextBtn {
+		    background-position: bottom left;
+		    right: 0;
+		}
+		.header .lastBtn:hover{
+			background-position: -46px -86px;
+		}
+		.header .nextBtn:hover{
+			background-position: -46px -1px;
+		}	
+		/****导航栏***/
+		#headerFunc{
+		    height: 50px;
+		    width: 100%;
+		    background: #00B1B6;
+		    position: absolute;
+		    top: 0;
+		    border-bottom: solid 1px rgba(93,94,95,0.2);
+		    z-index: 555;
+		    min-width: 1150px;
+		    color: #fff;
+		}
+		.container{
+		    width: 1000px;
+		    margin: 0 auto;
+		    overflow: hidden;
+		}
+		.container:after{
+		    clear: both;
+		}
+		.pullleft{
+		    float: left;
+		}
+		.pullright{
+		    float: right;
+		}
+		.pullright a{
+			color:#FFF;
+		}
+		.headerFuncCon span a:hover{
+		    text-decoration: underline;
+		}
+		.Func-fixed .headerFuncCon span i{
+		    background-position: -13px -23px;
+		}
+		.headerFuncCon>p{
+		    font-size: 12px;
+		    line-height: 50px;
+		    height: 50px;
+		}
+		.headerFuncCon>p img{
+			height: 30px;
+			vertical-align: middle;
+			margin-right: 50px;
+		}
+		.headerFuncCon .submitBtn{
+		    display: block;
+		    font-size: 12px;
+		    height: 50px;
+		    line-height: 50px;
+		    width: 50px;
+		    padding-left: 30px;
+		    margin-left: 15px;
+		    position: relative;
+		    float: left; 
+		}
+		.headerFuncCon .submitBtn i{
+		    display: block;
+		    width: 30px;
+		    height: 21px;
+		    position: absolute;
+		    left: 2px;
+		    top: 16px;
+		    background: url(images/clfIcon.png);
+		    background-position: 0 -549px;
+		    background-repeat: no-repeat;
+		}
+		.headerFuncCon .consule i{
+		    background: url(images/zixun-02.png);
+		    background-repeat: no-repeat;
+		}
+		.headerFuncCon input{
+		    float: left;
+		    margin-left: 20px;
+		    margin-top: 15px;
+		    width: 150px;
+		    font-size: 12px;
+		    text-indent: 3px;
+		    line-height: 20px;
+		    border: 0;
+		    background: rgba(93,94,92,0.2);
+		}
+
+		.headerFuncCon .searchBtn{
+		    display: block;
+		    margin-top: 17px;
+		    margin-left: 3px;
+		    float: left;
+		    width: 20px;
+		    height: 20px;
+		    background: url(images/clfIcon.png);
+		    background-position: 0 -30px;
+		    background-repeat: no-repeat;
+		}
+		.headerFuncCon span{
+		    display: block;
+		    height: 50px;
+		    line-height: 50px;
+		    width: 22px;
+		    margin-left: 5px;
+		    float: left;
+		    font-size: 12px;
+		    cursor: pointer;
+		    position: relative;
+		}
+		.headerFuncCon span i{
+		    display: block;
+		    position: absolute;
+		    right: 0px;
+		    top: 23px;
+		    width: 7px;
+		    height: 5px;
+		    background: url(/images/clfIcon.png);
+		    background-position: 0 -23px;
+		    background-repeat: no-repeat;
+		}
+/**********************************************************/
+.description{
+	overflow: hidden;
+	background-color:#f1ffff;
+	padding-bottom: 50px;
+}
+.description h2 {
+    margin: 50px 0;
+    font-size: 50px;
+    text-align: center;
+    color: #00B1B6;
+}
+.description .mainBox{
+	width: 1000px;
+	margin: 0 auto;
+}
+.description .videoBox{
+	width: 580px;
+	float: left;
+}
+.description .video{
+	position: relative;
+	width: 580px;
+	height: 327px;
+	margin:0 auto;
+	background:url(images/video.jpg) no-repeat;
+	background-position:center;
+	background-size: 100% auto;
+	margin-bottom: 12px;
+	cursor: pointer;
+}
+.description video{
+	display: none;
+}
+.description i{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	margin-left: -65px;
+	margin-top: -65px;
+	width: 130px;
+	height: 130px;
+	background:url(images/play.png) no-repeat;
+}
+.description .details_1{
+	font-size: 14px;
+	line-height: 32px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;	
+}
+.doctor{
+	color:#5c5e5e;
+	overflow: hidden;
+	float: right;
+	width: 390px;
+} 
+.doctor>div{
+	float: left;
+	width: 100%;
+}
+.doctor .left{
+	margin-bottom: 30px;
+}
+.doctor .imgbox{
+	position: relative;
+	width: 150px;
+	height: 200px;
+	overflow: hidden;
+	float: left;
+}
+.doctor img{
+	width: 150px;
+}
+.doctor .imgbox .bg{
+	position: absolute;
+	top:0;
+	left: 0;
+	background: rgba(26,168,171,0.8);
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: all .35s;
+	-webkit-transition:all .35s;
+}
+.doctor .imgbox .bg a{
+	display: block;
+    width: 100px;
+    height: 40px;
+    background-color: rgba(240,250,250,0.8);
+    line-height: 40px;
+    color: #00b1b6;
+    font-size: 12px;
+    margin:80px auto;
+    text-align: center;
+}
+.doctor .imgbox:hover .bg{
+	opacity: 1;
+}
+.doctor .contentbox{
+	float: left;
+	margin:0 0 0 30px;
+	width: 210px;
+	overflow: hidden;
+}
+.description h5{
+	font-size: 20px;
+	color:#00B1B6;
+	font-weight: bold;
+}
+
+.doctor em{
+	display: block;
+	line-height: 24px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.doctor p{
+	font-size: 14px;
+	line-height: 30px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5;
+	overflow: hidden;	
+	margin-top: 9px;
+}		
+
+	</style>
+</head>
+<body>
+	<div class="header">
+<!-- 		<div id="headerFunc" class="" style="top: 0px;">
+			<div class="container headerFuncCon">
+				<p class="pullleft"><a href="/"><img src="images/clflogo.png"></a>综合应用西医、中医、自然医学的大型现代化医院 </p>
+				<div class="pullright">
+					<a class="submitBtn consule" href="http://pht.zoosnet.net/LR/Chatpre.aspx?id=PHT77798977&lng=cn">在线咨询<i></i></a>
+					<a class="submitBtn" href="http://119.29.72.180:88/DeptApp.aspx">预约登陆<i></i></a>
+				</div>
+			</div>
+		</div>	 -->
+<!-- 		<div class="inner">
+			<a href="javascript:void(0)" class="">
+				<div class="bg1"></div>
+				<div class="content">
+					<img src="images/text1.png">
+					<button>了解更多 ></button>
+				</div>
+			</a>
+			<a href="javascript:void(0)">
+				<div class="bg2"></div>
+				<div class="content ">
+					<img src="images/text2.png">
+					<button>了解更多 ></button>
+				</div>				
+			</a>
+			<a href="javascript:void(0)" class="last">
+				<div class="bg3"></div>
+				<div class="content">
+					<img src="images/text3.png">
+					<button>了解更多 ></button>
+				</div>				
+			</a>	
+			<ul class="clearfix">
+				<li class="btn1">
+					<div></div>
+					<i class="active"></i>
+				</li>
+				<li class="btn2">
+					<div></div>
+					<i></i>
+				</li>
+				<li class="btn3">
+					<div></div>
+					<i></i>
+				</li>
+			</ul>					
+		</div>
+		<a href="javascript:void(0)" class="lastBtn"></a>
+		<a href="javascript:void(0)" class="nextBtn"></a> -->
+	</div>
+<!-- 		<div class="description">
+			<h2>专家谈肺癌</h2>
+			<div class="mainBox clearfix">
+				<div class="videoBox">
+					<div class="video">
+						<video video src="" controls="controls" width="1000" height="563" autoplay="autoplay"></video>
+						<i></i>
+					</div>
+					<div class="explain">
+						<h5>赵昌林</h5>
+						<p class="details_1">
+						广东省中医药学会内科专业委员会委员，世界中医药联合会自然疗法专业委员会委员。毕业于暨南大学，是国家博士研究生奖、南粤优秀研究生奖、暨南大学优秀毕业生获得者。精通于肝癌、肺癌、乳腺癌、结肠癌和直肠癌等病种的诊断和治疗，尤其擅长中西医、自然医学结合治疗。
+						</p>
+					</div>
+				</div>
+				<div class="doctor clearfix">
+					<div class="left clearfix">
+						<div class="imgbox">
+							<img src="images/zgl.jpg">
+							<div class="bg">
+								<a href="/index/doctor_info/72.html" target="_blank">了解更多 ></a>
+							</div>
+						</div>
+						<div class="contentbox">
+							<h5>赵昌林</h5>
+							<em>副主任医师、副教授、医学博士</em>
+							<p class="details">
+							广东省中医药学会内科专业委员会委员，世界中医药联合会自然疗法专业委员会委员。毕业于暨南大学，是国家博士研究生奖、南粤优秀研究生奖、暨南大学优秀毕业生获得者。精通于肝癌、肺癌、乳腺癌、结肠癌和直肠癌等病种的诊断和治疗，尤其擅长中西医、自然医学结合治疗。
+							</p>					
+						</div>
+					</div>
+					<div class="right">
+						<div class="imgbox">
+							<img src="images/wgq.jpg">	
+							<div class="bg">
+								<a href="/index/doctor_info/15.html" target="_blank">了解更多 ></a>
+							</div>						
+						</div>
+						<div class="contentbox">
+							<h5>武国强</h5>
+							<em>副主任医师</em>
+							<p class="details">
+							从事中西医结合临床肿瘤专业30余年，擅长肿瘤热疗，放化疗、生物治疗、分子靶向治疗等，使用热疗、三氧、中医等综合手段治疗食管癌、胃肠癌、肝癌、胰腺癌、前列腺癌、睾丸肿瘤、膀胱癌、乳腺癌、卵巢癌、肺癌、软组织肿瘤等，积累了的丰富临床经验。获得市级科研成果三等奖两项，发表论文10多篇。
+							</p>						
+						</div>
+					</div>			
+				</div>
+			</div>
+		</div>		
+	<div class="sidebar">
+		<div class="sidebar_wamp">
+			<a href="javascript:openZixunWin();" class="side_item side_zixun">
+				<i></i>
+				<p class="side_font">咨询</p>
+				<span>
+					<b></b>
+					<p>在线咨询</p>
+				</span>
+			</a>
+			<a href="http://119.29.72.180:88/DeptApp.aspx" target="_blank" class="side_item side_yuyue">
+				<i></i>
+				<p class="side_font">预约</p>
+				<span>
+					<b></b>
+					<p>在线预约</p>
+				</span>
+			</a>
+			<a href="http://119.29.72.180:88/User_Content/UserReport.aspx" target="_blank" class="side_item side_baogao">
+				<i></i>
+				<p class="side_font">报告</p>
+				<span>
+					<b></b>
+					<p>查询报告</p>
+				</span>
+			</a>
+			<a href="http://www.clifford-hospital.org/index/guide.html#5" class="side_item side_chenche">
+				<i></i>
+				<p class="side_font">乘车</p>
+				<span>
+					<b></b>
+					<p>乘车路线</p>
+				</span>
+			</a>
+			<a href="http://www.clifford-hospital.org/index/feedback.html" class="side_item side_toushu">
+				<i></i>
+				<p class="side_font">投诉</p>
+				<span>
+					<b></b>
+					<p>投诉建议</p>
+				</span>
+			</a>
+			<a class="side_item side_dinbu">
+				<i></i>
+				<p class="side_font">顶部</p>
+			</a>
+		</div>
+	</div>	 -->	
+<script type="text/javascript" src="jquery.min.js"></script>	
+<script type="text/javascript">
+	// function carouselBanner(){
+	// 	var index=0;
+	// 	var fadeTime;
+	// 	var clickflag=true;
+	// 	for(var i=2;i<4;i++){
+	// 		var img=new Image();
+	// 		img.src="/static/topics/images/banner"+i+".jpg";
+	// 	}
+	// 	fade();
+	// 	function fade() {
+	// 		clickflag=false;
+	// 		$(".inner a").eq(index).find(".content").fadeIn().css({left:"-500px"});
+	// 		$(".inner a").eq(index).delay(200).fadeIn(1000,function(){
+	// 			$(".inner a").eq(index).find(".content").stop().animate({left:"50%"},800,function(){
+	// 			});
+	// 			clickflag=true;
+	// 		}).siblings("a").delay(200).fadeOut(1000);
+	// 		$(".inner a").eq(index).siblings("a").find(".content").fadeOut(200);
+	// 		$(".inner li").eq(index).find("i").addClass("active");
+	// 		$(".inner li").eq(index).siblings().find("i").removeClass("active");
+	// 	}
+	// 	function next(){
+	// 		index++;
+	// 		if(index > $(".inner a").length-1) {
+	// 			index = 0;
+	// 		}
+	// 		fade();
+	// 	}
+	// 	function last(){
+	// 		index--;
+	// 		if(index < 0) {
+	// 			index = $(".inner a").length-1;
+	// 		}
+	// 		fade();
+	// 	}
+	// 	$(".inner li").on("click",function(){
+	// 		if(clickflag){
+	// 			index = $(this).index();
+	// 			fade();
+	// 		}	
+	// 	});		
+	// 	fadeTime=setInterval(next,5000);
+	// 	$(".header").hover(function(){
+	// 		clearInterval(fadeTime);
+	// 	},function(){
+	// 		fadeTime=setInterval(next,5000);
+	// 	});
+	// 	$(".header .nextBtn").on("click",function(){
+	// 		if(clickflag){
+	// 			next();
+	// 		}
+	// 	});
+	// 	$(".header .lastBtn").on("click",function(){
+	// 		if(clickflag){
+	// 			last();
+	// 		}
+	// 	});
+	// }
+	// carouselBanner();
+		// alert(navigator.userAgent.indexOf("Safari")&&navigator.userAgent.indexOf("Chrome")==-1);
+		$.ajax({
+			url:"http://10.161.18.113:3000/banner?cid=0",
+			success:function(data){
+				console.log(data)
+			}
+		})
+</script>
+</body>
+</html>
