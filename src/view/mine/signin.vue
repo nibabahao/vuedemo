@@ -81,7 +81,10 @@
                    }
                  })
                  .then(res => {
-                   console.log(res)
+                   if (res.data.status) {
+                     alert(res.data.msg)
+                     this.$router.push({path: '/mine'})
+                   }
                  })
              })()
            }

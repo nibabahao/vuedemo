@@ -14,7 +14,7 @@
      },
      methods: {
        back () {
-         this.$router.go(-1)
+         this.$router.push({path: '/index'})
        },
        share () {
          this.$store.state.shareShow = true

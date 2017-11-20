@@ -16,8 +16,9 @@ import goodsList from '../view/goods/goodslist'
 import pDetail from '../view/goods/pdetail'
 import fDetail from '../view/goods/fdetail'
 import Login from '../view/mine/login'
-import Signin from '../view/mine/Signin'
-
+import Signin from '../view/mine/signin'
+import Person from '../view/mine/person'
+import Base from '../view/mine/base'
 Vue.use(Router)
 
 export default new Router({
@@ -56,7 +57,7 @@ export default new Router({
           redirect: '/'
         },
         {
-          path: '/',
+          path: '/login',
           name: 'Login',
           component: Login
         },
@@ -64,6 +65,16 @@ export default new Router({
           path: '/signin',
           name: 'Signin',
           component: Signin
+        },
+        {
+          path: '/person',
+          name: 'Person',
+          component: Person
+        },
+        {
+          path: '/base',
+          name: 'Base',
+          component: Base
         }
       ]
     },

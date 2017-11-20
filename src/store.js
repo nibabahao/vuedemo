@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 const state = {
   cid: 0,
-  shareShow: false
+  shareShow: false,
+  imguploadShow: false
 }
 const mutations = {
   A_GET: (state, opts) => {
