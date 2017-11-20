@@ -19,6 +19,10 @@ import Login from '../view/mine/login'
 import Signin from '../view/mine/signin'
 import Person from '../view/mine/person'
 import Base from '../view/mine/base'
+import Name from '../view/mine/name'
+import Contact from '../view/mine/contact'
+import Editphone from '../view/mine/editphone'
+import Editpsd from '../view/mine/Editpsd'
 Vue.use(Router)
 
 export default new Router({
@@ -75,6 +79,26 @@ export default new Router({
           path: '/base',
           name: 'Base',
           component: Base
+        },
+        {
+          path: '/name',
+          name: 'Name',
+          component: Name
+        },
+        {
+          path: '/contact',
+          name: 'Contact',
+          component: Contact
+        },
+        {
+          path: '/editphone',
+          name: 'Editphone',
+          component: Editphone
+        },
+        {
+          path: '/Editpsd',
+          name: 'Editpsd',
+          component: Editpsd
         }
       ]
     },
